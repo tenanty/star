@@ -1,0 +1,10 @@
+#main-menu.menu-custom > li.active > a{
+      color: #FFF;
+      background: #364150;
+      border-color: #3C4049;
+}
+#main-menu.menu-custom > li > a:hover{
+      color: #FFF;
+      background: #2b3643;
+      border-color: #3C4049;
+}
