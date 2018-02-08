@@ -187,13 +187,12 @@
         <snapshotRepository>
             <id>snapshots</id>
             <name>Snapshots</name>
-            <url>http://localhost:8081/nexus/content/repositories/snapshots/</url>
-<!--             <uniqueVersion>true</uniqueVersion> -->
+            <url>http://10.130.24.251:8081/nexus/content/repositories/snapshots/</url>
         </snapshotRepository>
         <repository>
             <id>releases</id>
             <name>Releases</name>
-            <url>http://localhost:8081/nexus/content/repositories/releases/</url>
+            <url>http://10.130.24.251:8081/nexus/content/repositories/releases/</url>
         </repository>
     </distributionManagement>
     
@@ -226,15 +225,12 @@
                     <configuration>
                         <webApp>
                             <contextPath>/shiro</contextPath>
-<!--                             <descriptor>${basedir}/src/main/webapp/WEB-INF/web.xml</descriptor> -->
-<!--                             <defaultsDescriptor>${basedir}/src/main/webapp/WEB-INF/webdefault.xml</defaultsDescriptor> -->
                         </webApp>
                         <stopKey>exit</stopKey>
                         <stopPort>9090</stopPort>
                         <webAppSourceDirectory>${project.basedir}/src/main/webapp</webAppSourceDirectory>
                         <scanIntervalSeconds>10</scanIntervalSeconds>
-                        <!-- <connectors> <connector implementation="org.eclipse.jetty.server.nio.SelectChannelConnector"> 
-                            <port>8080</port> <maxIdleTime>60000</maxIdleTime> </connector> </connectors> -->
+
                         <httpConnector>
                             <port>8088</port>
                         </httpConnector>
@@ -245,8 +241,6 @@
                             <extended>false</extended>
                             <logTimeZone>GMT+8:00</logTimeZone>
                         </requestLog>
-                        <!-- <systemProperties> <systemProperty> <name>productionMode</name> 
-                            <value>${productionMode}</value> </systemProperty> </systemProperties> -->
                     </configuration>
                 </plugin>
     </plugins>
