@@ -36,9 +36,6 @@ public class LoginController {
 	 */
 	@RequestMapping(value="/login")
 	public String login(){
-		if(1 == 1){
-			throw new ServiceException("hello");
-		}
 		try {
 			Subject currentUser = SecurityUtils.getSubject();
 			if(currentUser.isRemembered()||currentUser.isAuthenticated()){
@@ -90,18 +87,14 @@ public class LoginController {
             currentUser.login(token);
         } catch (AuthenticationException e) {
             logger.error(String.format("用户登录失败，userName:%s，password:%s,错误原因：%s", userInfo.getUserName(),userInfo.getUserPwd(),e.getMessage()));
-//            request.setAttribute("errorMessage", e.getMessage());
-//            return "login";
+
             return "-1";
         }
         if (currentUser.isAuthenticated()) {
             userInfo = userInfoService.findUserInfo(new UserInfo(userInfo.getUserName()));
-//            session.setAttribute("userInfo", userInfo);
             SecurityUtils.getSubject().getSession().setAttribute("userInfo", userInfo);
-//            return "redirect:sms/index";
             return "0";
         } else {
-//            return "redirect:/login";
         	return "-1";
         }
     }
